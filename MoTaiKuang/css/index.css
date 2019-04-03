@@ -1,0 +1,22 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	display: none;
+}
+.container {
+	width: 1170px;
+	text-align: center;
+}
+.modal-content {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    top: -50%;
+    left: -50%;
+	transform: translate(50%,60%);
+}
+input{
+	height: 34px;
+}

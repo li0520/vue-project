@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 页面盒子 -->
+    <div id="warp">
+        {{ message }}
+        <p class="my-p">
+            {{ myPMessage }}
+        </p>
+
+        <!--  -->
+        <div class="container">
+            {{ myContainer }}
+        </div>
+        <!-- dom属性赋值 -->
+        <!-- v-bind: -->
+        <div class="my-title" v-bind:title="myTitle">
+                dom属性赋值
+        </div>
+        <!-- 条件控制 -->
+        <div class="show-box" v-if="flag">
+                条件控制
+        </div>
+        <ul>
+            <li 
+                v-for="( v, k) in list"
+                :key="k"
+                v-bind:title="k"
+            >
+                {{ k + ":" + v.value }}  
+            </li>
+        </ul>
+        <!-- class与style : 添加class-->
+        <!-- 数组语法 -->
+        <div 
+            class="my-add-class"
+            v-bind:class="[activaClass, commonClass]"
+        >
+                class与style : 添加class
+        </div>
+        <!-- 对象语法添加class -->
+        <div 
+            v-bind:class="{objectClass: flagClass}"
+        >
+            对象语法添加class
+        </div>
+
+        <!-- 事件驱动 -->
+        <!-- 事件监听器 -->
+        <div 
+            class="event-class"
+            @click="handleFunction"
+        >
+                事件监听器
+                <!-- 双向数据绑定: v-model可以获取里表单元素的输入值 -->
+                <input 
+                    type="text" 
+                    v-model="inputValue" 
+                    @keyup="handleKeyUp" 
+                    @keydown="handleKeyDown"
+                > 
+                <span> {{ inputValue }} </span>
+
+                <!-- 事件冒泡 -->
+                <div 
+                    class="stop-event"
+                    @click.stop="handleChildrenClick"
+                >
+                    阻止事件冒泡
+                </div>
+        </div>
+        <!-- 计算属性 -->
+        <div class="computer-class">
+            {{ resverseMessage }}
+        </div>
+        <!-- 组件调用 -->
+        <my-header
+            :todo = "message"
+            v-on:handle-children="handleParent"
+        >
+        </my-header>
+    </div>
+    
+    
+
+</body>
+<!-- 引入vue.js -->
+<script src="./js/vue.js"></script>
+<script src="./js/index.js"></script>
+</html>

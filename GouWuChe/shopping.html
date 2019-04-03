@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>当当网购物车页面</title>
+		<link href="css/global.css" rel="stylesheet" type="text/css" />
+		<link href="css/layout.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+		<!--中间部分开始-->
+		<div id="main">
+			<!--为您推荐商品开始-->
+
+			<div class="shopping_list_top">您已选购以下商品</div>
+			<div class="shopping_list_border">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr class="shopping_list_title">
+						<td class="shopping_list_title_1">商品名</td>
+						<td class="shopping_list_title_2">单品积分</td>
+						<td class="shopping_list_title_3">市场价</td>
+						<td class="shopping_list_title_4">当当价</td>
+						<td class="shopping_list_title_5">数量</td>
+						<td class="shopping_list_title_6">删除</td>
+					</tr>
+				</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" id="myTableProduct">
+					<tr class="shopping_product_list" id="shoppingProduct_01" v-for="(value , index) in list" :key="index">
+						<td class="shopping_product_list_1">
+							<a href="#" class="blue">{{ value.Ablue }}</a>
+						</td>
+						<td class="shopping_product_list_2"><label>{{ value.jiFei }}</label></td>
+						<td class="shopping_product_list_3">￥<label>{{ value.jiaGeOne }}</label></td>
+						<td class="shopping_product_list_4">￥<label>{{value.jiaGeTow}}</label>(59折)</td>
+						<td class="shopping_product_list_5">
+							<input type="text" value="1" @blur="sq" @focus="hq" />
+						</td>
+						<td class="shopping_product_list_6">
+							<a href="javascript:void(0)" type="delete" class="blue del" @click="handleDelete(index)">{{ value.blueDel }}</a>
+						</td>
+					</tr>
+				</table>
+				<div class="shopping_list_end">
+					<div>
+						<a id="removeAllProduct" class="ooooo">清空购物车</a>
+					</div>
+					<ul class="clearhide">
+						<span class="jifen">可获取商品积分：</span><span class="swt-integral">1750</span>
+
+						<li class="shopping_list_end_1 ooooo"><input name="" type="image" src="images/shopping_balance.gif" /></li>
+						<li class="shopping_list_end_2 ooooo">￥<label id="product_total">611.50</label></li>
+						<li class="shopping_list_end_3  ooooo">商品金额总计：</li>
+						<br />
+						<span class="jifen">本次省钱：</span><span class="savemoney">224.3</span>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/shopping.js"></script>
+	<script type="text/javascript" src="js/shoppingTwo.js"></script>
+
+</html>
